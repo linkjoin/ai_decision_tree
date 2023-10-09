@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Decision Tree Management</title>
+</head>
+<body>
+    <h1>Decision Trees</h1>
+    <ul>
+        {% for tree in decision_trees %}
+            <li><a href="{{ url_for('view_tree', id=tree.id) }}">{{ tree.name }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>Create a New Decision Tree</h2>
+    <form method="POST" action="/create_tree">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"></textarea>
+        <br>
+        <input type="submit" value="Create">
+    </form>
+</body>
+</html>
